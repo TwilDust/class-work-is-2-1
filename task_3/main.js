@@ -44,23 +44,95 @@
 // console.log(person["hobbies"][2]);
 // console.log(person["contacts"]["email"][0]);
 
+// let college = [
+//     {name: "Tom", age:23, group:"ИС-2-1"},
+//     {name: "Bob", age:15, group:"ИС-2-1"},
+//     {name: "Stan", age:23, group:"ИС-2-1"},
+//     {name: "Hurry", age:17, group:"ИС-4-1"},
+// ];
+
+// const studentIndex = 1;
+
+// let studentAge = college[studentIndex]["age"];
+// let studentName = college[studentIndex]["name"];
+
+// if (studentAge >= 18)
+// {
+//     console.log(`Студент ${studentName} совершеннолетний. Ему ${studentAge} лет`);
+// }
+// else if (studentAge < 18)
+// {
+//     console.log(`Студент ${studentName} не совершеннолетний. Ему ${studentAge} лет`);
+// }
+
 let college = [
-    {name: "Tom", age:23, group:"ИС-2-1"},
-    {name: "Bob", age:15, group:"ИС-2-1"},
-    {name: "Stan", age:23, group:"ИС-2-1"},
-    {name: "Hurry", age:17, group:"ИС-4-1"},
+    {
+        name: "Harry",
+        age: 18,
+        group: "ИС-2-1",
+        studId: 3212,
+        typeLearning: "Очная",
+        task: ["Физ-ра", "МДК-02-02", "МДК-04-02",],
+        cash: 5500,
+        isStudent: true
+    },
+    {
+        name: "Ron",
+        age: 16,
+        group: "ГД-4-2",
+        studId: 3227,
+        typeLearning: "Заочная",
+        task: ["Физ-ра", "Физика", "МДК-01-04",],
+        cash: 0,
+        isStudent: true
+    },
+    {
+        name: "Tom",
+        age: 32,
+        isKurator: true,
+        kuratorGroup: "ИС-2-1",
+        kafedra: "Инф. технологии",
+        predmet: ["МДК-02-01", "МДК-09-01","МДК-09-02"],
+        isStudent: false
+    },
+    {
+        name: "GROG",
+        age: 32,
+        isKurator: true,
+        kuratorGroup: "ГД-2-2",
+        kafedra: "Инф. технологии",
+        predmet: ["МДК-02-01", "МДК-09-01","МДК-09-02"],
+        isStudent: false
+    }
 ];
 
-const studentIndex = 1;
+let people = 1;
+const isStrudent = college[people]["isStudent"];
 
-let studentAge = college[studentIndex]["age"];
-let studentName = college[studentIndex]["name"];
+const isKurator = college[people]["isKurator"];
+const kuratorGroup = college[people]["kuratorGroup"];
 
-if (studentAge >= 18)
-{
-    console.log(`Студент ${studentName} совершеннолетний. Ему ${studentAge} лет`);
-}
-else if (studentAge < 18)
-{
-    console.log(`Студент ${studentName} не совершеннолетний. Ему ${studentAge} лет`);
+const peopleName = college[people]["name"];
+const peopleAge = college[people]["age"];
+const peopleCash = college[people]["cash"];
+
+if ( isStrudent === true ) {
+    console.log(`Вы выбрали студента ${peopleName}`);
+    if ( peopleAge >= 18 ) {
+        console.log(`Студент ${peopleName} совершеннолетний. Ему ${peopleAge}.`);
+    } else {
+        console.log(`Студент ${peopleName} не совершеннолетний. Ему ${peopleAge}.`);
+    }
+    if ( peopleCash >= 4500 ) {
+        console.log(`Студент ${peopleName} получает повышенную стипендию. (${peopleCash} руб).`);
+    } else if ( peopleCash <= 4400 && peopleCash >= 1) {
+        console.log(`Студент ${peopleName} получает обычную стипендию. (${peopleCash} руб).`);
+    } else if  ( peopleCash === 0 ) {
+        console.log(`Студент ${peopleName} не получает стипендию.`);
+    }
+} else if ( isStrudent === false ) {
+    console.log(`Вы выбрали преподователя ${peopleName}.`);
+    if ( isKurator === true ) {
+        console.log(`Преподаватель ${peopleName} куратор группы ${kuratorGroup}.`);
+    }
 }
